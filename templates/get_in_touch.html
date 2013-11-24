@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% include 'base.html' %}
+
+  <div class="container">
+    <form action="/email-details" method="post" enctype="multipart/form-data" name="GetInTouchForm" onsubmit="return validateGetInTouchForm()">
+      <fieldset>
+        <legend>Get In Touch</legend>
+        <label>Name (required)</label>
+        <input name="Name" type="text" placeholder="">
+        <label>Email (required)</label>
+        <input name="Email" type="email" placeholder="">
+        <label>Telephone (required)</label>
+        <input name="Telephone" type="tel" placeholder="">
+        <label>Comment (required)</label>
+        <textarea name="Comment" rows="5"></textarea>
+        <br>
+        <button type="submit" class="btn">Submit</button>
+      </fieldset>
+    </form>
+  </div>
+
+  <script>
+    function validateGetInTouchForm() {
+      if (document.GetInTouchForm.Name.value.length == 0)
+      {
+          alert("Please provide your name");
+          document.GetInTouchForm.Name.focus();
+          return false;
+      }
+      if (document.GetInTouchForm.Telephone.value == "")
+      {
+          alert("Please provide your telephone number");
+          document.GetInTouchForm.Telephone.focus();
+          return false;
+      }
+      if (document.GetInTouchForm.Comment.value == "")
+      {
+          alert("Please provide a comment");
+          document.GetInTouchForm.Comment.focus();
+          return false;
+      }
+      return true;
+
+    }
+  </script>
+
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% include 'base.html' %}
+
+  <div class ="container">
+      <h1>{{ album.name }}</h1>
+      <p>{{ album.description }}</p>
+  </div>
+
+  {% for blob_key in blob_keys %}
+    <div class="container">
+      <p>{{ blob_key }}</p>
+      <img src="{{ blob_key }}"/>
+    </div>
+  {% endfor %}
+
+  {% for photo in photos %}
+    <div class="container">
+      <p>{{ photo.serving_url }}</p>
+      <img src="{{ photo.serving_url }}"/>
+    </div>
+  {% endfor %}
+
+  <div class="container">
+      <a href="album-slideshow?key={{ album.ukey }}">
+          <h3>View as awesome slideshow</h3>
+      </a>
+  </div>
+
+  </body>
+</html>

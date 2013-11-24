@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% include 'base.html' %}
+  <div class="container">
+    <form action="/add-album?key={{ album.ukey }}" enctype="multipart/form-data" method="post"
+            accept-charset="UTF-8" id="add_album_form">
+      <fieldset>
+        <legend>Add Album</legend>
+        <label>Name</label>
+        <input type="text" name="name" value="{{ album.name }}">
+        <label>Description</label>
+        <textarea name="description" rows="10">{{ album.description }}</textarea>
+        <br>
+        <button type="submit" class="btn">Submit</button>
+      </fieldset>
+    </form>
+  </div>
+
+  {% for photo in photos %}
+  <div class ="container">
+      <h1>{{ photo.index }}</h1>
+  </div>
+  {% endfor %}
+
+  <div class="container">
+    <form action="{{ upload_new_thumbnail_url }}" method="POST" enctype="multipart/form-data">
+        <label>Thumbnail</label>
+        <input type="file" name="thumbnail">
+        <input type="hidden" name="key" value="{{ album.ukey }}">
+        <input type="submit" name="submit_thumbnail" value="Add album thumbnail">
+    </form>
+  </div>
+
+
+  <div class="container">
+    <form action="{{ upload_new_photo_url }}" method="POST" enctype="multipart/form-data">
+        <label>Photo</label>
+        <input type="file" name="photos">
+        <input type="hidden" name="key" value="{{ album.ukey }}">
+        <input type="submit" name="submit_photos" value="Add photo">
+    </form>
+  </div>
+
+  </body>
+</html>

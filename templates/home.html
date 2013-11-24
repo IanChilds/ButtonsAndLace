@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% include 'base.html' %}
+
+  {% for album in albums %}
+    <div class="container">
+      <a href="/album?key={{ album.ukey }}"><h2>{{ album.name }}</h2></a>
+      <img src="{{ album.thumbnail }}"/>
+      <p>{{ album.description }}</p>
+    </div>
+  {% endfor %}
+
+  </body>
+</html>
