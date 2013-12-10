@@ -1,3 +1,5 @@
+from google.appengine.api import users
+
 __author__ = 'Binnie'
 
 import webapp2
@@ -10,5 +12,5 @@ path = os.path.join(os.path.dirname(__file__), '../templates/about.html')
 
 class AboutScreenHandler(webapp2.RequestHandler):
     def get(self):
-        template_values = {}
+        template_values = {'is_admin': users.is_current_user_admin()}
         self.response.out.write(template.render(path, template_values))

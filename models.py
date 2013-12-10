@@ -16,6 +16,7 @@ class Album(ndb.Model):
     description = ndb.TextProperty()      # Any text to accompany the album
     start_date = ndb.DateTimeProperty()   # When the photos were taken. This will be used to sort the albums.
     end_date = ndb.DateTimeProperty()     # If the photos were taken over a longer period of time, this might be useful.
+    thumbnail_serving_url = ndb.StringProperty()  # Easy access to thumbnail
 
 
 class Image(ndb.Model):

@@ -11,3 +11,5 @@ from delete_albums import *
 from album_page import *
 from album_slideshow import *
 from email_details import *
+from login import *
+from logout import *

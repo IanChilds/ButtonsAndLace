@@ -1,30 +1,40 @@
-<!DOCTYPE html>
-{% include 'base.html' %}
+<!doctype html>
+<html lang="en">
 
-  <div class ="container">
-      <h1>{{ album.name }}</h1>
-      <p>{{ album.description }}</p>
-  </div>
+    <head>
+        <meta charset="utf-8">
 
-  {% for blob_key in blob_keys %}
-    <div class="container">
-      <p>{{ blob_key }}</p>
-      <img src="{{ blob_key }}"/>
-    </div>
-  {% endfor %}
+        <title>Rapid web server development</title>
 
-  {% for photo in photos %}
-    <div class="container">
-      <p>{{ photo.serving_url }}</p>
-      <img src="{{ photo.serving_url }}"/>
-    </div>
-  {% endfor %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <div class="container">
-      <a href="album-slideshow?key={{ album.ukey }}">
-          <h3>View as awesome slideshow</h3>
-      </a>
-  </div>
+        <link rel="stylesheet" href="/static/css/reveal.min.css">
+        <link rel="stylesheet" href="/static/css/theme/default.css" id="theme">
+    </head>
 
-  </body>
+    <body>
+
+        <div class="reveal">
+            <div class="slides">
+                {% for photo in photos %}
+                    <section>
+                        <img src="{{ photo.serving_url }}"/>
+                    </section>
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <script src="/static/lib/js/head.min.js"></script>
+        <script src="/static/js/reveal.min.js"></script>
+
+        <script>
+
+            Reveal.initialize({
+                transition: 'linear'
+            });
+
+        </script>
+
+    </body>
 </html>

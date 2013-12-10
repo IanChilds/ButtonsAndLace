@@ -35,4 +35,6 @@ app = webapp2.WSGIApplication([
                                 ('/album', handlers.AlbumPageHandler),
                                 ('/album-slideshow', handlers.AlbumSlideshowHandler),
                                 ('/email-details', handlers.EmailDetailsHandler),
+                                ('/login', handlers.LoginScreenHandler),
+                                ('/logout', handlers.LogoutScreenHandler),
                               ], debug=True)

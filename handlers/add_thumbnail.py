@@ -24,6 +24,10 @@ class AddThumbnailHandler(blobstore_handlers.BlobstoreUploadHandler):
             thumbnail.populate(serving_url=images.get_serving_url(blob_info.key()))
             thumbnail.put()
 
+            album = album_key.get()
+            album.thumbnail_serving_url = thumbnail.serving_url
+            album.put()
+
             album_key = ndb.Key(urlsafe=self.request.get('key'))  # No idea why I have to add this line in again
             self.redirect('/add-album?key=%s' % album_key.urlsafe())
 

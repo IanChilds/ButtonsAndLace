@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 {% include 'base.html' %}
 
+  {% if is_admin %}
+    <div class="container">
+      <a href="/add-album?key={{ album.ukey }}">
+        <p class="text-right">Edit this album</p>
+      </a>
+    </div>
+  {% endif %}
+
   <div class ="container">
-      <img src="{{ thumbnail.serving_url }}"/>
       <h1>{{ album.name }}</h1>
       <p>{{ album.description }}</p>
   </div>
 
   {% for photo in photos %}
     <div class="container">
-      <p>{{ photo.serving_url }}</p>
-      <img src="{{ photo.serving_url }}"/>
+      <div class="row">
+          <div class="span12"><img src="{{ photo.serving_url }}"/></div>
+      </div>
+      <br>
+
     </div>
   {% endfor %}
 

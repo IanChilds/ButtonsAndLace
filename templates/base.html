@@ -3,7 +3,7 @@
     <title>buttons and lace photography</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -47,8 +47,10 @@
             <li><a href="/about">About</a></li>
             <li><a href="/get-in-touch">Get In Touch</a></li>
             <li><a href="/investment">Investment</a></li>
-            <li><a href="/add-album">Add Album</a></li>
-            <li><a href="/delete-albums">Delete Albums</a></li>
+            {% if is_admin %}
+              <li><a href="/add-album">Add Album</a></li>
+              <li><a href="/delete-albums">Delete Albums</a></li>
+            {% endif %}
           </ul>
         </div>
       </div>

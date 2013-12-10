@@ -5,7 +5,7 @@ import os
 import models
 from google.appengine.ext import ndb
 from google.appengine.ext.webapp import template
-from google.appengine.api import mail
+from google.appengine.api import mail, users
 
 path = os.path.join(os.path.dirname(__file__), '../templates/email_details.html')
 
@@ -29,5 +29,5 @@ Comment: %s
         user_address = "imbchilds@gmail.com"
         mail.send_mail(sender_address, user_address, subject, body)
 
-        template_values = {}
+        template_values = {'is_admin': users.is_current_user_admin()}
         self.response.out.write(template.render(path, template_values))
